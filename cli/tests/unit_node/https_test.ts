@@ -37,6 +37,8 @@ Deno.test("[node/https] request makes https request", async () => {
     },
   });
   const { stderr, stdout } = await command.output();
+  console.log(dec.decode(stderr));
+  console.log(dec.decode(stdout));
   assertEquals(dec.decode(stderr), "");
   assertEquals(dec.decode(stdout), "abcd\n".repeat(repetitions) + "\n");
   controller.abort();
